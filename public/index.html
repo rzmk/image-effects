@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Image Effects</title>
+		<!-- unpkg.com Tailwind CSS -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+		/>
+		<link href="https://fonts.googleapis.com" />
+		<link href="https://fonts.gstatic.com" crossorigin />
+		<!-- Pacifico font from googleapis.com -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Pacifico"
+			rel="stylesheet"
+		/>
+		<style>
+			h1 {
+				font-family: "Pacifico", cursive;
+			}
+			.bg {
+				animation: slide 3s ease-in-out infinite alternate;
+				background-image: linear-gradient(
+					-60deg,
+					#acffad 50%,
+					#50cb95 50%
+				);
+			}
+			.bg:nth-child(2) {
+				animation-direction: alternate-reverse;
+				animation-duration: 4s;
+			}
+			.bg:nth-child(3) {
+				animation-duration: 5s;
+			}
+			@keyframes slide {
+				0% {
+					transform: translateX(-25%);
+				}
+				100% {
+					transform: translateX(25%);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bg fixed inset-y-0 -inset-x-2/4 opacity-50 z-0"></div>
+		<div class="bg fixed inset-y-0 -inset-x-2/4 opacity-50 z-0"></div>
+		<div class="bg fixed inset-y-0 -inset-x-2/4 opacity-50 z-0"></div>
+		<div class="flex items-center justify-center h-screen relative z-100">
+			<div
+				class="bg-white bg-opacity-95 border shadow-lg p-10 text-center"
+			>
+				<h1 class="text-5xl mb-8">Image Effects</h1>
+				<p class="mb-4">
+					Need to do some basic image manipulation? Just upload your
+					image below. We'll take care of the rest.
+				</p>
+				<label class="bg-pink-600 text-white w-full p-6 block">
+					<!-- File Input -->
+					<input
+						type="file"
+						id="upload"
+						accept=".png"
+						class="hidden"
+					/>
+					Upload PNG Image
+				</label>
+				<img id="new-img" class="w-auto mx-auto" />
+			</div>
+		</div>
+	</body>
+</html>
